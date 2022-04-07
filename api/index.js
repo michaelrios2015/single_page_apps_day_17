@@ -26,6 +26,7 @@ router.get('/courses', async(req, res, next)=> {
     }
 });
 
+// ohh you can put the :id in the middle interesting 
 router.get('/students/:id/enrolled', async(req, res, next)=> {
     // pretty simple just get all our users 
     try {
