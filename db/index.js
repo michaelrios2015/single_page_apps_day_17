@@ -29,6 +29,11 @@ const Course = conn.define('course', {
 
 // this is our through table??
 const Enrolled = conn.define('enrolled', {
+    id: {
+        type: UUID,
+        defaultValue: UUIDV4,
+        primaryKey: true
+    },
     cherries: {
         type: BOOLEAN,
         defaultValue: true

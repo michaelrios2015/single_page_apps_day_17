@@ -4,8 +4,17 @@ const { syncAndSeed, models: { Student, Course, Enrolled }, conn } = require('./
 // good old express which makes the magic serever
 const express = require('express');
 
+const path = require('path');
+
 // I guess we are now putting that magic into app??
 const app = express();
+
+// magic code to deliver static files
+app.use('/dist', express.static(path.join(__dirname, 'dist')));
+
+// the magic that let's us bring in the intail html file 
+app.get('/', (req, res, next)=> res.sendFile(path.join(__dirname, 'index.html')));
+
 
 // router is pretty magical becuase now I have all the api in this folder amd it' just to you see /api
 // well check that folder 
