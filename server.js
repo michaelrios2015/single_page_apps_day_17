@@ -9,6 +9,9 @@ const path = require('path');
 // I guess we are now putting that magic into app??
 const app = express();
 
+// this lets us send a json with our post request
+app.use(express.json());
+
 // magic code to deliver static files
 app.use('/dist', express.static(path.join(__dirname, 'dist')));
 

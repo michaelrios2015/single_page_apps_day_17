@@ -36,7 +36,7 @@ const Enrolled = conn.define('enrolled', {
     },
     cherries: {
         type: BOOLEAN,
-        defaultValue: true
+        defaultValue: false
     }
 });
 
@@ -63,7 +63,7 @@ const syncAndSeed = async() => {
     // enrolling students in courses 
     const enrollement = await Promise.all([ 
         Enrolled.create({ studentId: moe.id, courseId: C.id}),
-        Enrolled.create({ studentId: curly.id, courseId: javaScript.id })
+        Enrolled.create({ studentId: curly.id, courseId: javaScript.id, cherries: true })
     ])
 } 
 

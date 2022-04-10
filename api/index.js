@@ -48,4 +48,27 @@ router.get('/students/:id/enrolled', async(req, res, next)=> {
     }
 });
 
+
+// posting 
+router.post('/students/:id/enrolled', async(req, res, next)=> {
+    // pretty simple just get all our users 
+    console.log(req.body);
+    console.log(req.params.id);
+    console.log({...req.body, studentId: req.params.id });
+    try {
+        // the req.body is the object we just sent from the event listener 
+        let enroll = await Enrolled.create({...req.body, studentId: req.params.id })
+        // not sure what this send does??
+        enroll = await Enrolled.findByPk(enroll.id, {
+            include: [Course]
+        })
+        // console.log(enroll);
+        res.send(enroll);
+    }
+    // or tell us what went wrong 
+    catch(ex){
+        next(ex);
+    }
+});
+
 module.exports = router;

@@ -3,10 +3,52 @@
 <head>
     <!-- this the the default webpak folder -->
     <script src='/dist/main.js' defer> </script>
+    <style>
+        body {
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            padding: 1rem;
+        }
+
+        main {
+            display: flex;
+        }
+
+        /* everything under main gets an equal weigh and is therfore spaced out equally 
+        I think  */
+        main>* {
+            flex: 1;
+        }
+
+        .selected {
+            background-color: crimson;
+        }
+
+        .selected a {
+            color: white;
+        }
+    </style>
+
 </head>
 
 <body>
     <h1>Fordham Student registration</h1>
+    <main>
+        <div>
+            <h2>student</h2>
+            <ul id="student-list">
+            </ul>
+        </div>
+        <div>
+            <h2>courses</h2>
+            <ul id="course-list">
+            </ul>
+        </div>
+        <div>
+            <h2>enrolled</h2>
+            <ul id="enrolled-list">
+            </ul>
+        </div>
+    </main>
 </body>
 
 </html>
